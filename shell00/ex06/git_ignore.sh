@@ -1,10 +1,4 @@
 #!/bin/bash
 
 
-while read line
-
-do
-
-	    echo $line
-
-	done < .gitignore
+git ls-files -o --ignored --exclude-from .gitignore

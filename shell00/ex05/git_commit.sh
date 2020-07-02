@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git log --pretty=format:"%H" -5
+git log --pretty=format:"%H" | HEAD -n -5
 
 
 
