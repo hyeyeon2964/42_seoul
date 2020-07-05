@@ -6,17 +6,14 @@
 /*   By: junhokim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 13:44:33 by junhokim          #+#    #+#             */
-/*   Updated: 2020/07/05 09:44:18 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/07/05 13:29:18 by junhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
 void	rush(int width, int height);
-void	ft_putchar(char a);
 
 int		main(void)
 {
-	rush(5, 3);
+	rush(5, 1);
 	return (0);
 }
