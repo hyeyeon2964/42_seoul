@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhokim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/04 13:44:33 by junhokim          #+#    #+#             */
-/*   Updated: 2020/07/05 13:29:18 by junhokim         ###   ########.fr       */
+/*   Created: 2020/07/09 20:27:37 by hmyoung           #+#    #+#             */
+/*   Updated: 2020/07/09 21:22:00 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int width, int height);
-
-int		main(void)
+char	*ft_strcpy(char *dext, char *src)
 {
-	rush(0, 0);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (*(src + i) != '\0')
+	{
+		*(dext + i) = *(src + i);
+		i++;
+	}
+	return (dext);
 }
