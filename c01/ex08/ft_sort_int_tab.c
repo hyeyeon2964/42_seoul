@@ -6,7 +6,7 @@
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 16:47:29 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/07/12 11:41:27 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/07/12 19:50:25 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	while (index < size - 1)
 	{
 		j = 0;
-		while (j < size - 1 - i)
+		while (j < size - 1 - index)
 		{
 			if (tab[j] > tab[j + 1])
 			{
@@ -30,6 +30,6 @@ void	ft_sort_int_tab(int *tab, int size)
 			}
 			j++;
 		}
-		i++;
+		index++;
 	}
 }

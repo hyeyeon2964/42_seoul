@@ -6,11 +6,11 @@
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 16:15:41 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/07/12 11:30:21 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/07/12 18:00:35 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_stlen(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 

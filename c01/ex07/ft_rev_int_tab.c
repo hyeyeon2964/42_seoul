@@ -6,11 +6,11 @@
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 16:36:15 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/07/12 11:39:55 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/07/12 18:09:05 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tap(int *tab, int size)
+void	ft_rev_int_tab(int *tab, int size)
 {
 	int temp;
 	int index;
