@@ -6,19 +6,20 @@
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 20:27:37 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/07/09 21:22:00 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/07/12 20:54:36 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dext, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
 	while (*(src + i) != '\0')
 	{
-		*(dext + i) = *(src + i);
+		*(dest + i) = *(src + i);
 		i++;
 	}
-	return (dext);
+	*(dest + i) = *(src + i);
+	return (dest);
 }

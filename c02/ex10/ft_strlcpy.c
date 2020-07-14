@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/09 21:21:15 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/07/14 10:30:48 by hmyoung          ###   ########.fr       */
+/*   Created: 2020/07/14 11:01:39 by hmyoung           #+#    #+#             */
+/*   Updated: 2020/07/14 11:12:14 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int		i;
-	char	a;
+	unsigned int index;
 
-	i = 0;
-	while (str[i] != '\0')
+	index = 0;
+	if (size == 0)
+		*dest = '\0';
+	if (size != 0)
 	{
-		a = str[i];
-		if (!((a >= 'A' && a <= 'Z') || (a >= 'a' && a <= 'z')))
-			return (0);
-		i++;
+		while (index + 1 < size && src[index])
+		{
+			dest[index] = src[index];
+			index++;
+		}
+		dest[index] = '\0';
 	}
-	return (1);
+	while (*src)
+	{
+		index++;
+	}
+	return (index);
 }

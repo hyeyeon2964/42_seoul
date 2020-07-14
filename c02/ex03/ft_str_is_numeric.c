@@ -6,27 +6,23 @@
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:56:38 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/07/09 22:07:15 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/07/13 15:07:50 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_str_is_numberic(char *str)
+int		ft_str_is_numeric(char *str)
 {
 	char	a;
 
-	if (*str == '\0')
-		return (1);
 	while (*(str) != '\0')
 	{
 		a = *(str++);
-		if (a >= '0' && a <= '9')
+		if (!((a >= '0' && a <= '9')))
 		{
-			continue;
-		}
-		else
 			return (0);
+		}
 	}
 	return (1);
 }
