@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 14:34:46 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/11/06 20:16:06 by hmyoung          ###   ########.fr       */
+/*   Created: 2020/10/30 14:49:46 by hmyoung           #+#    #+#             */
+/*   Updated: 2020/11/06 13:14:22 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int ch)
+size_t		ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int	i;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	while (str[i])
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	i = dest_len;
+	j = 0;
+	if (size <= dest_len)
+		return (src_len + size);
+	while (src[j] != '\0' && i + 1 < size)
 	{
-		i++;
+		dest[i++] = src[j++];
 	}
-	while (i >= 0)
-	{
-		if (str[i] == (char)ch)
-		{
-			return ((char *)(str + i));
-		}
-		i--;
-	}
-	return (NULL);
+	dest[i] = '\0';
+	return (src_len + dest_len);
 }

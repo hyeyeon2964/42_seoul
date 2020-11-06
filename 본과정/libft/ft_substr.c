@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 14:34:46 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/11/06 20:16:06 by hmyoung          ###   ########.fr       */
+/*   Created: 2020/11/06 20:21:01 by hmyoung           #+#    #+#             */
+/*   Updated: 2020/11/06 20:32:47 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int ch)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	char	*result;
+	size_t	s_len;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	while (str[i])
+	if (!s)
+		return (0);
+	if (!result = (char *)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	s_len = ft_strlen(s);
+	i = start;
+	j = 0;
+	if (start < s_len)
 	{
-		i++;
-	}
-	while (i >= 0)
-	{
-		if (str[i] == (char)ch)
+		while (i < start + len && s[i] != '\0')
 		{
-			return ((char *)(str + i));
+			result[j] = s[i];
+			i++;
+			j++;
 		}
-		i--;
 	}
-	return (NULL);
+	result[j] = '\0';
+	return (result);
 }
