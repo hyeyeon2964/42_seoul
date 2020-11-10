@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 20:21:01 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/11/10 18:30:34 by hmyoung          ###   ########.fr       */
+/*   Created: 2020/11/10 18:13:50 by hmyoung           #+#    #+#             */
+/*   Updated: 2020/11/10 18:37:24 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	put_number(int n, int fd)
 {
-	char	*result;
-	size_t	s_len;
-	size_t	i;
-	size_t	j;
+	if (n >= 10)
+		put_number(n / 10, fd);
+	write(fd, &"0123456789"[n % 10], 1);
+}
 
-	if (!s)
-		return (0);
-	if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
-		return (0);
-	s_len = ft_strlen(s);
-	i = start;
-	j = 0;
-	if (start < s_len)
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (fd < 0 || n > 2147483647 || n < -2147483648)
+		return ;
+	if (n == 0)
 	{
-		while (i < start + len && s[i] != '\0')
-		{
-			result[j] = s[i];
-			i++;
-			j++;
-		}
+		write(fd, "0", 1);
+		return ;
 	}
-	result[j] = '\0';
-	return (result);
+	else if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	put_number(n, fd);
 }

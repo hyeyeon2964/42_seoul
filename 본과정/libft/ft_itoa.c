@@ -1,40 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 20:21:01 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/11/10 18:30:34 by hmyoung          ###   ########.fr       */
+/*   Created: 2020/11/10 16:34:19 by hmyoung           #+#    #+#             */
+/*   Updated: 2020/11/10 16:47:46 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+size_t	get_len(int n)
+{
+	size_t len;
+
+	if (n == 0)
+		return (1);
+	len = 0;
+	if (n < 0)
+		len++;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
 {
 	char	*result;
-	size_t	s_len;
+	size_t	len;
 	size_t	i;
-	size_t	j;
 
-	if (!s)
-		return (0);
-	if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
-		return (0);
-	s_len = ft_strlen(s);
-	i = start;
-	j = 0;
-	if (start < s_len)
+	len = get_len(n);
+	if (!(result = (char *)malloc(len + 1)))
+		return (NULL);
+	result[len] = '\0';
+	if (n < 0)
 	{
-		while (i < start + len && s[i] != '\0')
-		{
-			result[j] = s[i];
-			i++;
-			j++;
-		}
+		result[0] = '-';
+		i = 1;
 	}
-	result[j] = '\0';
+	else
+		i = 0;
+	while (i < len)
+	{
+		len--;
+		result[len] = '0' + n % 10 * (n < 0 ? -1 : 1);
+		n /= 10;
+	}
 	return (result);
 }
