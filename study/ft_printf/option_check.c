@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   option_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 16:17:55 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/11 21:08:36 by hmyoung          ###   ########.fr       */
+/*   Updated: 2021/03/21 21:12:04 by hmyoung          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,5 @@ int		option_check(const char *format, int i)
 		}
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }

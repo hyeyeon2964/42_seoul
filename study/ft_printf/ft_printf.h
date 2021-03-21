@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 11:47:53 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/11 20:44:10 by hmyoung          ###   ########.fr       */
+/*   Updated: 2021/03/21 17:23:57 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int				integer_len(int num);
 void			struct_reset(void);
 void			print_result(va_list ap);
 size_t			ft_strlen(const char *str);
+char			*ft_strdup(const char *s);
+char			*ft_strjoin(char const *s1, char const *s2);
 
 #endif
