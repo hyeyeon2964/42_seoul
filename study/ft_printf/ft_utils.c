@@ -6,7 +6,7 @@
 /*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:26:28 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/21 21:08:38 by hmyoung          ###   ########seoul.kr  */
+/*   Updated: 2021/03/25 18:31:28 by hmyoung          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ size_t	ft_strlen(const char *str)
 
 	index = 0;
 	len = 0;
-
 	while (*str != '\0')
 	{
 		len++;
@@ -34,6 +33,8 @@ char	*ft_strdup(const char *s)
 	size_t	s_size;
 	size_t	index;
 
+	if (s == NULL)
+		return (NULL);
 	s_size = ft_strlen(s);
 	if (!(result = (void *)malloc(s_size + 1)))
 		return (0);
@@ -74,4 +75,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (0);
 }
-

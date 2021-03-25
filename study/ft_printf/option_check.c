@@ -69,7 +69,7 @@ int		option_check(const char *format, int i)
 			g_info.zero = 1;
 		else if (format[i] >= '1' && format[i] <= '9')
 		{
-			g_info.width = atoi(&format[i]);
+			g_info.width = ft_atoi(&format[i]);
 			i = i + integer_len(g_info.width) - 1;
 		}
 		else if (format[i] == '*')
@@ -77,7 +77,7 @@ int		option_check(const char *format, int i)
 		else if (format[i] == '.')
 		{
 			g_info.dot = 1;
-			g_info.precision = atoi(&format[i + 1]);
+			g_info.precision = ft_atoi(&format[i + 1]);
 			i = i + integer_len(g_info.precision);
 		}
 		i++;

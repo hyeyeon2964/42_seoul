@@ -6,19 +6,19 @@
 /*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:27:56 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/21 21:27:33 by hmyoung          ###   ########seoul.kr  */
+/*   Updated: 2021/03/25 20:41:30 by hmyoung          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	print_str(char *str)
+#include <stdio.h>
+void print_str(char *str)
 {
 	write(1, str, ft_strlen(str));
-	g_info.result += ft_strlen(str) - 1;
+	g_info.result += ft_strlen(str);
 }
 
-char	*make_flag(size_t width, char c)
+char *make_flag(int width, char c)
 {
 	char	*str;
 	int		index;
@@ -34,7 +34,7 @@ char	*make_flag(size_t width, char c)
 	return (str);
 }
 
-void	print_etc(void)
+void print_per(void)
 {
 	char *str;
 
@@ -49,51 +49,25 @@ void	print_etc(void)
 	print_str(str);
 }
 
-void	print_s(va_list ap)
-{
-	char	*str;
-	char	*blank;
-	int		strlen;
-
-	blank = "";
-	if ((str = ft_strdup(va_arg(ap, char*))) == NULL)
-		return ;
-	if ((g_info.precision_star == 1 && g_info.precision == -1) || g_info.precision == 0)
-		return ;
-	strlen = ft_strlen(str);
-	if (g_info.precision < strlen)
-	{
-		str[g_info.precision] = '\0';
-		str = ft_strdup(str);
-		strlen = ft_strlen(str);
-	}
-	if (g_info.width == 0)
-		g_info.width = strlen;
-	if (g_info.width > strlen)
-		blank = make_flag(g_info.width-strlen, ' ');
-	if (g_info.minus == 1)
-		str = ft_strjoin(str, blank);
-	else
-		str = ft_strjoin(blank, str);
-	print_str(str);
-	return ;
-}
-
-void print_c(va_list ap)
-{
-	char *str;
-
-	if (g_info.width == 0)
-		g_info.width = 1;
-	str = make_flag(g_info.width, ' ');
-	if (g_info.minus == 1)
-		str[0] = (char) va_arg(ap, int);
-	else
-		str[ft_strlen(str) - 1] = (char) va_arg(ap, int);
-	print_str(str);
-}
-
 void print_result(va_list ap)
+{
+	if (g_info.type == '%')
+		print_per();
+	else if (g_info.type == 'c')
+		print_c(ap);
+	else if (g_info.type == 's')
+		print_s(ap);
+	else if
+		(g_info.type == 'd' || g_info.type == 'i'
+		|| g_info.type == 'u')
+			print_d(ap);
+	else if (g_info.type == 'x' || g_info.type == 'X')
+		print_x(ap);
+	else if (g_info.type == 'p')
+		print_p(ap);
+}
+
+void save_option(va_list ap)
 {
 	if (g_info.width_star == 1)
 	{
@@ -107,11 +81,5 @@ void print_result(va_list ap)
 	}
 	if(g_info.precision_star == 1)
 		g_info.precision = va_arg(ap, int);
-	if (g_info.type == '%')
-		print_etc();
-	else if (g_info.type == 'c')
-		print_c(ap);
-	else if (g_info.type == 's')
-		print_s(ap);
+	print_result(ap);
 }
-
