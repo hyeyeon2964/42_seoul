@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 11:49:35 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/25 16:49:07 by hmyoung          ###   ########seoul.kr  */
+/*   Created: 2021/03/30 20:22:26 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/03/30 20:22:29 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,7 @@ int		ft_atoi(const char *str)
 	return (sign * result);
 }
 
-size_t	get_len(int n)
-{
-	size_t len;
-
-	if (n == 0)
-		return (1);
-	len = 0;
-	if (n < 0)
-		len++;
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n)
 {
 	char	*result;
 	size_t	len;
@@ -125,7 +108,7 @@ char	*ft_itoh(long long n)
 	long long	r;
 
 	if (n == 0)
-		return ("");
+		return ("0");
 	if (g_info.type == 'X')
 		alpha = ft_strdup("ABCDEF");
 	else
@@ -145,4 +128,3 @@ char	*ft_itoh(long long n)
 	free(alpha);
 	return (res);
 }
-

@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   print_result.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:27:56 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/25 20:41:30 by hmyoung          ###   ########seoul.kr  */
+/*   Created: 2021/03/30 20:58:24 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/03/30 20:58:26 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-void print_str(char *str)
+
+void	print_str(char *str)
 {
 	write(1, str, ft_strlen(str));
 	g_info.result += ft_strlen(str);
 }
 
-char *make_flag(int width, char c)
+char	*make_flag(int width, char c)
 {
 	char	*str;
 	int		index;
@@ -34,10 +34,16 @@ char *make_flag(int width, char c)
 	return (str);
 }
 
-void print_per(void)
+void	print_per(void)
 {
-	char *str;
+	char	*str;
 
+	if (g_info.width == 0)
+	{
+		write(1, "%%", 1);
+		g_info.result++;
+		return ;
+	}
 	if (g_info.zero == 1)
 		str = make_flag(g_info.width, '0');
 	else
@@ -47,9 +53,10 @@ void print_per(void)
 	else
 		str[ft_strlen(str) - 1] = '%';
 	print_str(str);
+	free(str);
 }
 
-void print_result(va_list ap)
+void	print_result(va_list ap)
 {
 	if (g_info.type == '%')
 		print_per();
@@ -60,14 +67,14 @@ void print_result(va_list ap)
 	else if
 		(g_info.type == 'd' || g_info.type == 'i'
 		|| g_info.type == 'u')
-			print_d(ap);
+		print_d(ap);
 	else if (g_info.type == 'x' || g_info.type == 'X')
 		print_x(ap);
 	else if (g_info.type == 'p')
 		print_p(ap);
 }
 
-void save_option(va_list ap)
+void	save_option(va_list ap)
 {
 	if (g_info.width_star == 1)
 	{
@@ -79,7 +86,9 @@ void save_option(va_list ap)
 		else if (g_info.width == 0)
 			g_info.zero = 1;
 	}
-	if(g_info.precision_star == 1)
+	if (g_info.precision_star == 1)
 		g_info.precision = va_arg(ap, int);
+	if (g_info.minus == 1 && g_info.zero == 1)
+		g_info.zero = 0;
 	print_result(ap);
 }

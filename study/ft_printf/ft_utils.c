@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/21 16:26:28 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/03/25 18:31:28 by hmyoung          ###   ########seoul.kr  */
+/*   Created: 2021/03/30 21:04:34 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/03/30 21:04:35 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (result);
 	}
 	return (0);
+}
+
+size_t	get_len(long long n)
+{
+	size_t len;
+
+	if (n == 0)
+		return (1);
+	len = 0;
+	if (n < 0)
+		len++;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
