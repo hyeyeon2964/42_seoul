@@ -6,7 +6,7 @@
 /*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 21:04:29 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/10/28 21:16:29 by hmyoung          ###   ########.fr       */
+/*   Updated: 2020/10/28 21:45:43 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 	{
 		if (*p1 != *p2)
 		{
-			return (*p1 - *p2);
+			return ((int)*p1 - *p2);
 		}
 		p1++;
 		p2++;
