@@ -1,22 +1,30 @@
 #include "push_swap.h"
 #include <stdio.h>
-void	swap_sa(Node a, Node b)
+void	swap_sa(t_node a, t_node b)
 {
 
 }
-
-int main(void)
+void	create_stack(t_node *a, char **av)
 {
-	Head *head = malloc(sizeof(Head));
+	t_node *temp;
+	int i;
 
-	Node *node1 = malloc(sizeof(Node));
-	head->top = node1;
-	node1->value = 10;
+	i = 0;
+	if(!(temp = (t_node *)malloc(sizeof(t_node))))
+		return(0);
+	while (av[i] != '\0')
+	{
+		temp->next = (t_node *)malloc(sizeof(t_node));
+		temp->value = ft_atoi(*av[i]);
+	}
+}
 
-	Node *node2 = malloc(sizeof(Node));
-	node1->next = node2;
-	node2->value = 5;
-	node2->next = NULL;
+int main(int ac, char **av)
+{
+	t_node a;
+	t_node b;
 
-	printf("Node 1: %d  Node2: %d size: %d \n", node1->value, node2->value, head->size);
+	if(ac < 2)
+		return (0);
+
 }

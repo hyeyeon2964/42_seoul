@@ -1,18 +1,15 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "unistd.h"
-#include "stdlib.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
-typedef struct Node {
-	int value;
-	struct Node* next;
-} Node;
-
-typedef struct Head {
-	Node* top;
-	int size;
-} Head;
+typedef struct s_node {
+	long value;
+	struct s_node *prev;
+	struct s_node *next;
+} t_node;
 
 #endif
 
