@@ -5,8 +5,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+
 typedef struct s_node {
-	long value;
+	int value;
 	struct s_node *prev;
 	struct s_node *next;
 } t_node;

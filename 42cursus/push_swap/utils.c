@@ -1,7 +1,3 @@
-#include "push_swap.h"
-//#include "utils.h"
-#include <stdio.h>
-
 int		ft_isspace(char str)
 {
 	if ((9 <= str && str <= 13) || str == 32)
@@ -34,33 +30,4 @@ int		ft_atoi(const char *str)
 		i++;
 	}
 	return (sign * result);
-}
-
-int	create_stack(t_node *a, char **av, int ac)
-{
-	t_node *temp;
-	int i;
-
-	i = 1;
-	if(!(temp = (t_node *)malloc(sizeof(t_node))))
-		return(0);
-	while (i != ac)
-	{
-		temp->next = (t_node *)malloc(sizeof(t_node));
-		temp->value = ft_atoi(av[i]);
-		printf("%d \n", temp->value);
-		i++;
-	}
-	return (0);
-}
-
-int main(int ac, char **av)
-{
-	t_node *a;
-	t_node b;
-
-	if(ac < 2)
-		return (0);
-	create_stack(a, av, ac);
-
 }
