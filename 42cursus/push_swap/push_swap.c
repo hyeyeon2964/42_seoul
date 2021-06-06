@@ -36,21 +36,30 @@ int		ft_atoi(const char *str)
 	return (sign * result);
 }
 
+void print_stack(t_node *st)
+{
+	while(st->next != NULL)
+	{
+		printf("%d \n", st->value);
+		st = st->next;
+	}
+}
 int	create_stack(t_node *a, char **av, int ac)
 {
 	t_node *temp;
 	int i;
 
-	i = 1;
+	i = ac;
 	if(!(temp = (t_node *)malloc(sizeof(t_node))))
 		return(0);
-	while (i != ac)
+	while (i != 0)
 	{
 		temp->next = (t_node *)malloc(sizeof(t_node));
 		temp->value = ft_atoi(av[i]);
-		printf("%d \n", temp->value);
+		temp->next = a;
 		i++;
 	}
+	print_stack(temp);
 	return (0);
 }
 
