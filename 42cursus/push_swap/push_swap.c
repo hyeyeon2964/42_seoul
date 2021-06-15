@@ -1,5 +1,5 @@
 #include "push_swap.h"
-//#include "utils.h"
+#include "utils.h"
 #include <stdio.h>
 
 int		ft_isspace(char str)
@@ -38,36 +38,44 @@ int		ft_atoi(const char *str)
 
 void print_stack(t_node *st)
 {
+	printf("%d \n", 5555);
 	while(st->next != NULL)
 	{
 		printf("%d \n", st->value);
 		st = st->next;
 	}
 }
+
 int	create_stack(t_node *a, char **av, int ac)
 {
 	t_node *temp;
 	int i;
 
-	i = ac;
+	i = ac - 1;
 	if(!(temp = (t_node *)malloc(sizeof(t_node))))
 		return(0);
-	while (i != 0)
+	while (i > 0)
 	{
 		temp->next = (t_node *)malloc(sizeof(t_node));
 		temp->value = ft_atoi(av[i]);
-		temp->next = a;
-		i++;
+		if (i == ac - 1)
+			temp->next = NULL;
+		else {
+			temp->next = a;
+		}
+		i--;
 	}
-	print_stack(temp);
+	print_stack(a);
 	return (0);
 }
 
 int main(int ac, char **av)
 {
 	t_node *a;
-	t_node b;
+	t_node *b;
 
+	if(!(a = (t_node *)malloc(sizeof(t_node))))
+		return(0);
 	if(ac < 2)
 		return (0);
 	create_stack(a, av, ac);
