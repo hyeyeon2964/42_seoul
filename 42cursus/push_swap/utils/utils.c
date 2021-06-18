@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmyoung <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 16:13:15 by hmyoung           #+#    #+#             */
-/*   Updated: 2020/11/06 20:01:07 by hmyoung          ###   ########.fr       */
+/*   Created: 2021/06/18 13:28:00 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/06/18 13:28:02 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 int		ft_isspace(char str)
 {
@@ -45,3 +45,4 @@ int		ft_atoi(const char *str)
 	}
 	return (sign * result);
 }
+

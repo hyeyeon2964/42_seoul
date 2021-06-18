@@ -1,83 +1,144 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/18 13:26:07 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/06/18 13:26:17 by hmyoung          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include "utils.h"
 #include <stdio.h>
 
-int		ft_isspace(char str)
+void	add_front(t_node **head, t_node *temp)
 {
-	if ((9 <= str && str <= 13) || str == 32)
-		return (1);
-	return (0);
+	temp->next = (*head);
+	*head = temp;
 }
 
-int		ft_atoi(const char *str)
-{
-	int		sign;
-	int		i;
-	long	result;
-
-	i = 0;
-	while (ft_isspace(str[i]) == 1)
-	{
-		i++;
-	}
-	sign = (str[i] == '-') ? -1 : 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	result = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10) + (str[i] - '0');
-		if (result > 2147483647 && sign == 1)
-			return (-1);
-		if (result > 2147483648 && sign == -1)
-			return (0);
-		i++;
-	}
-	return (sign * result);
-}
-
-void print_stack(t_node *st)
-{
-	printf("%d \n", 5555);
-	while(st->next != NULL)
-	{
-		printf("%d \n", st->value);
-		st = st->next;
-	}
-}
-
-int	create_stack(t_node *a, char **av, int ac)
+void push_front_from_back(t_node **a, t_node **b)
 {
 	t_node *temp;
-	int i;
 
-	i = ac - 1;
-	if(!(temp = (t_node *)malloc(sizeof(t_node))))
-		return(0);
-	while (i > 0)
+	temp = (*b)->next;
+	(*b)->next = *a;
+	(*a) = (*b);
+	(*b) = temp;
+}
+
+void swap_stack(t_node **node)
+{
+	int temp;
+	temp = (*node)->next->value;
+	(*node)->next->value = (*node)->value;
+	(*node)->value = temp;
+}
+
+void swap_all(t_node **a, t_node **b)
+{
+	swap_stack(a);
+	swap_stack(b);
+}
+
+void from_top_to_bot(t_node **node) {
+	t_node *temp_second;
+	t_node *temp_last;
+	t_node **temp_head;
+	t_node *head;
+
+	head = (*node);
+	temp_head = node;
+	temp_second = (*node)->next;
+	while ((*temp_head)->next != NULL)
 	{
-		temp->next = (t_node *)malloc(sizeof(t_node));
-		temp->value = ft_atoi(av[i]);
-		if (i == ac - 1)
-			temp->next = NULL;
-		else {
-			temp->next = a;
-		}
-		i--;
+		(*temp_head) = (*temp_head)->next;
 	}
-	print_stack(a);
-	return (0);
+	temp_last = (*temp_head);
+	temp_last->next = head;
+	head->next = NULL;
+	(*node) = temp_second;
+}
+
+void from_top_to_bot_all(t_node **a, t_node **b)
+{
+	from_top_to_bot(a);
+	from_top_to_bot(b);
+}
+
+void from_bot_to_top(t_node **node) {
+	t_node *temp_second;
+	t_node *temp_last;
+	t_node **temp_head;
+	t_node *head;
+
+	head = (*node);
+	temp_head = node;
+	//temp_second = (*node)->next;
+	while ((*temp_head)->next->next != NULL)
+	{
+		(*temp_head) = (*temp_head)->next;
+	}
+	temp_second = (*temp_head);
+	temp_last = temp_second->next;
+	temp_second->next = NULL;
+	temp_last->next = head;
+	(*node) = temp_last;
+}
+
+void from_bot_to_top_all(t_node **a, t_node **b)
+{
+	from_bot_to_top(a);
+	from_bot_to_top(b);
 }
 
 int main(int ac, char **av)
 {
 	t_node *a;
 	t_node *b;
+	t_node *temp;
+	t_node **head_a;
+	t_node **head_b;
+	int index;
+
+	index = ac - 1;
+	if(ac < 2)
+		return (0);
 
 	if(!(a = (t_node *)malloc(sizeof(t_node))))
 		return(0);
-	if(ac < 2)
-		return (0);
-	create_stack(a, av, ac);
+	a = create_node(ft_atoi(av[index--]));
+	head_a = &a;
+	while (index != 0)
+	{
+		temp = create_node(ft_atoi(av[index]));
+		add_front(head_a, temp);
+		index--;
+	}
 
+	if(!(b = (t_node *)malloc(sizeof(t_node))))
+		return(0);
+
+	b = create_node(1);
+	head_b = &b;
+
+	add_front(head_b, create_node(3));
+	add_front(head_b, create_node(5));
+	add_front(head_b, create_node(7));
+	//push_front_from_back(head_a, head_b);
+	//swap_stack(head_a);
+	from_bot_to_top_all(head_a, head_b);
+	while ((*head_a) != NULL)
+	{
+		printf("%d \n", (*head_a)->value);
+		(*head_a) = (*head_a)->next;
+	}
+	printf("\n \n \n");
+	while ((*head_b) != NULL)
+	{
+		printf("%d \n", (*head_b)->value);
+		(*head_b) = (*head_b)->next;
+	}
 }

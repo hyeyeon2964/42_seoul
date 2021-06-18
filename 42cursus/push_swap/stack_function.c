@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 13:27:35 by hmyoung           #+#    #+#             */
-/*   Updated: 2021/06/18 13:27:38 by hmyoung          ###   ########.fr       */
+/*   Created: 2021/06/18 13:27:48 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/06/18 13:27:50 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
+t_node *create_node(int value)
+{
+	t_node *temp;
 
-typedef struct s_node {
-	int value;
-	struct s_node *prev;
-	struct s_node *next;
-} t_node;
+	if(!(temp = (t_node *)malloc(sizeof(t_node))))
+		return(0);
+	temp->value = value;
+	temp->next = NULL;
 
-int					ft_atoi(const char *str);
-int					ft_isspace(char str);
-t_node				*create_node(int value);
-t_node 				**create_head();
+	return (temp);
+}
 
-#endif
+t_node **create_head()
+{
+	t_node **head;
 
+	if(!(head = (t_node **)malloc(sizeof(t_node *))))
+		return(0);
+
+	return (head);
+}
