@@ -27,6 +27,17 @@ int					ft_atoi(const char *str);
 int					ft_isspace(char str);
 t_node				*create_node(int value);
 t_node 				**create_head();
+void	add_front(t_node **head, char **av, int ac);
+void push_front_from_back(t_node **a, t_node **b);
+void swap_stack(t_node **node);
+void swap_all(t_node **a, t_node **b);
+void from_top_to_bot(t_node **node);
+void from_top_to_bot_all(t_node **a, t_node **b);
+void from_bot_to_top(t_node **node);
+void from_bot_to_top_all(t_node **a, t_node **b);
+int		get_partition(int *sort, int start, int end);
+void	quick_sort(int *sort, int start, int end);
+
 
 #endif
 
