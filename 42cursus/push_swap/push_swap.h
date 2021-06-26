@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 typedef struct s_node {
 	int value;
@@ -27,6 +28,11 @@ int					ft_atoi(const char *str);
 int					ft_isspace(char str);
 t_node				*create_node(int value);
 t_node 				**create_head();
+
+void print_stack(t_node **head);
+
+
+
 void add_front(t_node **head, char **av, int ac);
 void push_function(t_node **a, t_node **b);
 void swap_stack(t_node **node);

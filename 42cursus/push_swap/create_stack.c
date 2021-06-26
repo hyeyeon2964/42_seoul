@@ -17,7 +17,7 @@ t_node *create_node(int value)
 	t_node *temp;
 
 	if(!(temp = (t_node *)malloc(sizeof(t_node))))
-		return(0);
+		return (0);
 	temp->value = value;
 	temp->next = NULL;
 
@@ -29,7 +29,7 @@ t_node **create_head()
 	t_node **head;
 
 	if(!(head = (t_node **)malloc(sizeof(t_node *))))
-		return(0);
+		return (0);
 
 	return (head);
 }

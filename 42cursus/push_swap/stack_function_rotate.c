@@ -31,9 +31,11 @@ void from_bot_to_top(t_node **node) { //마지막 원소가 첫번째로
 	t_node **temp_head;
 	t_node *head;
 
+
 	head = (*node);
 	temp_head = node;
-	//temp_second = (*node)->next;
+	//탐색할 노드가 1개 일 때 오류 처리 안됨
+
 	while ((*temp_head)->next->next != NULL)
 	{
 		(*temp_head) = (*temp_head)->next;

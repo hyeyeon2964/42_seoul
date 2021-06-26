@@ -13,9 +13,18 @@ void a_to_b(t_node **head_a, t_node **head_b, int r)
 	temp_b = (*head_b);
 	ra_cnt = 0;
 	pb_cnt = 0;
+
+
 	if (r == 1)
 		return ;
+
 	pivot = select_pivot(head_a);
+	printf("a : ");
+	print_stack(head_a);
+
+	printf("b: ");
+	print_stack(head_b);
+	printf("\n\n");
 	while(r--)
 	{
 		if ((*head_a)->value > pivot)
@@ -29,10 +38,16 @@ void a_to_b(t_node **head_a, t_node **head_b, int r)
 			pb_cnt++;
 		}
 	}
+	printf("ra: %d \n", ra_cnt);
+	printf("pb: %d \n", pb_cnt);
 	temp = ra_cnt;
-	while(temp--)
+	while(temp--) {
 		from_bot_to_top(head_a);
+	}
+
+	printf("A to B \n");
 	a_to_b(head_a, head_b, ra_cnt);
+	printf("B to A \n");
 	b_to_a(head_a, head_b, pb_cnt);
 }
 

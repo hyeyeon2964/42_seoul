@@ -20,9 +20,10 @@ void print_stack(t_node **head)
 
 	while (temp != NULL)
 	{
-		printf("%d \n", temp->value);
+		printf("%d  ", temp->value);
 		temp = temp->next;
 	}
+	printf("\n");
 }
 
 int *get_node_to_arr(int len, t_node **head)
@@ -97,11 +98,11 @@ int main(int ac, char **av)
 	add_front(head_a, av, ac-1);
 	if(!(b = (t_node *)malloc(sizeof(t_node))))
 		return(0);
-	b = create_node(1);
+	//b = create_node(1);
 	head_b = &b;
 	//A_to_B(head_a, head_b, ac-1);
-	print_stack(head_a);
-	printf("\n\n\n\n\n");
+	//print_stack(head_a);
+	//printf("\n\n\n\n\n");
 	a_to_b(head_a, head_b, ac - 1);
 	print_stack(head_a);
 
