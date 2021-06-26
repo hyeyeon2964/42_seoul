@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void push_front_from_back(t_node **a, t_node **b) // b의 첫번째 값을 a의 맨 위에 옮기기
+void push_function(t_node **a, t_node **b) // b의 첫번째 값을 a의 맨 위에 옮기기
 {
 	t_node *temp;
 
