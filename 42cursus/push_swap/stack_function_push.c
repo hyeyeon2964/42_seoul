@@ -4,10 +4,13 @@ void push_function(t_node **a, t_node **b) // b의 첫번째 값을 a의 맨 위
 {
 	t_node *temp;
 
-	temp = (*b)->next;
-	(*b)->next = *a;
-	(*a) = (*b);
-	(*b) = temp;
+	// if ((*b)->next != NULL)
+	// {
+		temp = (*b)->next;
+		(*b)->next = *a;
+		(*a) = (*b);
+		(*b) = temp;
+	// }
 }
 
 void swap_stack(t_node **node) // 첫번째 원소와 두번째 원소 바꿈

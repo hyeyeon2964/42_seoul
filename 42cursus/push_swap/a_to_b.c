@@ -14,17 +14,10 @@ void a_to_b(t_node **head_a, t_node **head_b, int r)
 	ra_cnt = 0;
 	pb_cnt = 0;
 
-
 	if (r == 1)
 		return ;
-
 	pivot = select_pivot(head_a);
-	printf("a : ");
-	print_stack(head_a);
 
-	printf("b: ");
-	print_stack(head_b);
-	printf("\n\n");
 	while(r--)
 	{
 		if ((*head_a)->value > pivot)
@@ -38,16 +31,11 @@ void a_to_b(t_node **head_a, t_node **head_b, int r)
 			pb_cnt++;
 		}
 	}
-	printf("ra: %d \n", ra_cnt);
-	printf("pb: %d \n", pb_cnt);
 	temp = ra_cnt;
 	while(temp--) {
 		from_bot_to_top(head_a);
 	}
-
-	printf("A to B \n");
 	a_to_b(head_a, head_b, ra_cnt);
-	printf("B to A \n");
 	b_to_a(head_a, head_b, pb_cnt);
 }
 
@@ -70,23 +58,33 @@ void b_to_a(t_node **head_a, t_node **head_b, int r)
 		push_function(head_a, head_b);
 		return ;
 	}
-	pivot = select_pivot(head_a);
-	while (r --)
+	// if (r == 2)
+	// {
+	// 	print_stack(head_b);
+	// 	return ;
+	// }
+
+	pivot = select_pivot(head_b);
+
+	while (r--)
 	{
-		if ((*head_b)->value <= pivot)
-		{
-			from_top_to_bot(head_b);
-			rb_cnt++;
-		}
-		else
+		if ((*head_b)->value > pivot)
 		{
 			push_function(head_a, head_b);
 			pa_cnt++;
 		}
+		else
+		{
+			from_top_to_bot(head_b);
+			rb_cnt++;
+		}
 	}
 	temp = rb_cnt;
-	while (temp)
+	while (temp--)
 	{
 		from_bot_to_top(head_b);
 	}
+
+	a_to_b(head_a, head_b, pa_cnt);
+	b_to_a(head_a, head_b, rb_cnt);
 }

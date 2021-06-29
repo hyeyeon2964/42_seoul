@@ -98,12 +98,11 @@ int main(int ac, char **av)
 	add_front(head_a, av, ac-1);
 	if(!(b = (t_node *)malloc(sizeof(t_node))))
 		return(0);
-	//b = create_node(1);
 	head_b = &b;
-	//A_to_B(head_a, head_b, ac-1);
-	//print_stack(head_a);
-	//printf("\n\n\n\n\n");
+	b = NULL;
+
 	a_to_b(head_a, head_b, ac - 1);
-	print_stack(head_a);
+	printf("\n");
+	//print_stack(head_a);
 
 }
