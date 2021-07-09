@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   p_function.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 16:53:58 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/07/01 12:18:56 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:39:58 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:39:59 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void			pa(t_struct *head_a, t_struct *head_b, t_oper *op)
+void	pa(t_struct *head_a, t_struct *head_b, t_oper *op)
 {
 	t_struct	*temp_a;
 	t_struct	*temp_b;
@@ -28,7 +28,7 @@ void			pa(t_struct *head_a, t_struct *head_b, t_oper *op)
 	add_op_list(op, "pa");
 }
 
-void			pb(t_struct *head_a, t_struct *head_b, t_oper *op)
+void	pb(t_struct *head_a, t_struct *head_b, t_oper *op)
 {
 	t_struct	*temp_a;
 	t_struct	*temp_b;

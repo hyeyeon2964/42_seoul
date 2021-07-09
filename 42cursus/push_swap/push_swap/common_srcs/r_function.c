@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   r_function.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 13:15:40 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/07/01 12:27:15 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:40:07 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:40:08 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void			ra(t_struct *head_a, t_oper *op)
+void	ra(t_struct *head_a, t_oper *op)
 {
 	t_struct	*temp;
 	t_struct	*last;
@@ -28,7 +28,7 @@ void			ra(t_struct *head_a, t_oper *op)
 	add_op_list(op, "ra");
 }
 
-void			rb(t_struct *head_b, t_oper *op)
+void	rb(t_struct *head_b, t_oper *op)
 {
 	t_struct	*temp;
 	t_struct	*last;
@@ -44,7 +44,7 @@ void			rb(t_struct *head_b, t_oper *op)
 	add_op_list(op, "rb");
 }
 
-void			rr(t_struct *head_a, t_struct *head_b, t_oper *op)
+void	rr(t_struct *head_a, t_struct *head_b, t_oper *op)
 {
 	ra(head_a, op);
 	rb(head_b, op);

@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   error_check_before.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 12:49:05 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/06/29 16:37:02 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:37:34 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:37:35 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int				write_error(void)
+int	write_error(void)
 {
 	write(2, "Error\n", 6);
 	return (1);
 }
 
-int				error_over_int(const char *str)
+int	error_over_int(const char *str)
 {
 	long long	n;
 
@@ -30,13 +30,13 @@ int				error_over_int(const char *str)
 	return (0);
 }
 
-int				error_not_number(const char *str)
+int	error_not_number(const char *str)
 {
 	int			i;
 
 	i = 0;
-	while (str[i] && (str[i] == '\f' || str[i] == '\t' || str[i] == ' ' ||
-			str[i] == '\n' || str[i] == '\r' || str[i] == '\v'))
+	while (str[i] && (str[i] == '\f' || str[i] == '\t' || str[i] == ' '
+			|| str[i] == '\n' || str[i] == '\r' || str[i] == '\v'))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
@@ -47,7 +47,7 @@ int				error_not_number(const char *str)
 	return (1);
 }
 
-int				error_check_before(int argc, char **argv)
+int	error_check_before(int argc, char **argv)
 {
 	int			i;
 

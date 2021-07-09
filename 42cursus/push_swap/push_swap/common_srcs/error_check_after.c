@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error_check_after.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 14:08:22 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/06/29 15:12:29 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:31:30 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:31:31 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int				error_check_dup(t_struct *head)
+int	error_check_dup(t_struct *head)
 {
 	t_struct	*temp_i;
 	t_struct	*temp_j;
@@ -24,10 +24,10 @@ int				error_check_dup(t_struct *head)
 	{
 		i = temp_i->value;
 		temp_j = temp_i->next;
-		if (temp_j->next == NULL &&
-				i == temp_j->value)
+		if (temp_j->next == NULL
+			&& i == temp_j->value)
 			return (1);
-		while (temp_j->next != NULL)
+		while (temp_j != NULL)
 		{
 			j = temp_j->value;
 			if (i == j)
@@ -39,23 +39,7 @@ int				error_check_dup(t_struct *head)
 	return (0);
 }
 
-int				already_sort(t_struct *head)
-{
-	t_struct	*temp;
-	int			n;
-
-	temp = head->next;
-	while (temp->next != NULL)
-	{
-		n = temp->value;
-		if (temp->next != NULL && n > temp->next->value)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
-
-int				error_check_after(t_struct *head)
+int	error_check_after(t_struct *head)
 {
 	if (error_check_dup(head))
 		return (1);

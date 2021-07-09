@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   handle_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 12:46:01 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/07/01 13:22:42 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:39:25 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:39:27 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void			free_stack(t_struct *node)
+void	free_stack(t_struct *node)
 {
 	t_struct	*index;
 	t_struct	*temp;
@@ -27,7 +27,7 @@ void			free_stack(t_struct *node)
 	free(index);
 }
 
-void			free_operation(t_oper *op)
+void	free_operation(t_oper *op)
 {
 	t_oper		*index;
 	t_oper		*temp;
@@ -44,7 +44,7 @@ void			free_operation(t_oper *op)
 	free(op);
 }
 
-void			handle_free(t_struct *head_a, t_struct *head_b, t_oper *op)
+void	handle_free(t_struct *head_a, t_struct *head_b, t_oper *op)
 {
 	free_stack(head_a);
 	free_operation(op);

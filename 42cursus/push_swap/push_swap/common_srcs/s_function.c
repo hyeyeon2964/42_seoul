@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_function.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 13:15:59 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/07/01 12:27:00 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:40:43 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:40:44 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void			sa(t_struct *head_a, t_oper *op)
+void	sa(t_struct *head_a, t_oper *op)
 {
 	t_struct	*temp_up;
 	t_struct	*temp_down;
@@ -28,7 +28,7 @@ void			sa(t_struct *head_a, t_oper *op)
 	add_op_list(op, "sa");
 }
 
-void			sb(t_struct *head_b, t_oper *op)
+void	sb(t_struct *head_b, t_oper *op)
 {
 	t_struct	*temp_up;
 	t_struct	*temp_down;
@@ -44,7 +44,7 @@ void			sb(t_struct *head_b, t_oper *op)
 	add_op_list(op, "sb");
 }
 
-void			ss(t_struct *head_a, t_struct *head_b, t_oper *op)
+void	ss(t_struct *head_a, t_struct *head_b, t_oper *op)
 {
 	sa(head_a, op);
 	sb(head_b, op);

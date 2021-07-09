@@ -3,30 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 13:28:44 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/07/01 13:46:08 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:14:34 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:14:36 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void			init_stack(t_struct *head_a, int argc, char **argv)
-{
-	int			i;
-	int			n;
-
-	i = 1;
-	while (i < argc)
-	{
-		n = ft_atoi(argv[i]);
-		add_lst_back(head_a, n);
-		i++;
-	}
-}
-
-void			push_swap(t_struct *head_a, t_struct *head_b, t_oper *op)
+void	push_swap(t_struct *head_a, t_struct *head_b, t_oper *op)
 {
 	int			n;
 
@@ -35,13 +21,13 @@ void			push_swap(t_struct *head_a, t_struct *head_b, t_oper *op)
 		sort_two_a(head_a, op);
 	else if (n == 3)
 		sort_three_a(head_a, op);
-	else if (n == 6)
-		sort_six(head_a, head_b, op, n);
+	else if (n == 5)
+		sort_five(head_a, head_b, n, op);
 	else
 		a_to_b(head_a, head_b, n, op);
 }
 
-int				main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_struct	*head_a;
 	t_struct	*head_b;

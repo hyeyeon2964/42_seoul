@@ -3,31 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   handle_operation_list.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jung-lee <jung-lee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hmyoung <hmyoung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 12:33:24 by jung-lee          #+#    #+#             */
-/*   Updated: 2021/07/01 17:19:22 by jung-lee         ###   ########.fr       */
+/*   Created: 2021/07/09 12:16:02 by hmyoung           #+#    #+#             */
+/*   Updated: 2021/07/09 12:16:04 by hmyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void			handle_operation_list(t_oper *op)
+void	print_op_list(t_oper *op)
 {
 	t_oper		*temp;
-	size_t		len;
 
 	temp = op->next;
-	// operation list 최적화 함수
-	// 최적화된 리스트 출력
 	while (temp != NULL)
 	{
-		len = ft_strlen(temp->operation);
-		if (len == 2)
-			write(1, temp->operation, 2);
-		else
-			write(1, temp->operation, 3);
-		write(1, "\n", 1);
+		if (temp->operation != NULL)
+		{
+			write(1, temp->operation, ft_strlen(temp->operation));
+			write(1, "\n", 1);
+		}
 		temp = temp->next;
 	}
+}
+
+void	optimize_operation(t_oper *op)
+{
+	while (1)
+	{
+		if (merge_operation(op) == 0)
+			break ;
+	}
+	while (1)
+	{
+		if (delete_operation(op) == 0)
+			break ;
+	}
+}
+
+void	handle_operation_list(t_oper *op)
+{
+	optimize_operation(op);
+	print_op_list(op);
 }
