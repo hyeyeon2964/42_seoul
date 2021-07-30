@@ -7,7 +7,7 @@
 -Libft  
 -Get_Next_line  
 -Printf  
--Cub3d
+-Cub3d  
 -ft_server  
 -push_swap  
 
